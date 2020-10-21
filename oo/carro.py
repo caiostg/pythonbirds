@@ -88,6 +88,24 @@ A direção tera a responsabilidade de controlar a direção. ela oferece os seg
     >>> carro.calcular_direcao()
     'Oeste'
     '''
+
+class Carro:
+    def __init__(self, direcao, motor):
+        self.motor = motor
+        self.direcao = direcao
+    def calcular_velocidade(self):
+        return self.motor.velocidade
+    def acelerar(self):
+        self.motor.acelerar()
+    def frear(self):
+        self.motor.frear()
+    def calcular_direcao(self):
+        return self.direcao.valor
+    def girar_a_esquerda(self):
+        self.direcao.girar_a_esquerda()
+    def girar_a_direita(self):
+        self.direcao.girar_a_direita()
+
 NORTE = 'Norte'
 LESTE = 'Leste'
 OESTE = 'Oeste'
@@ -99,7 +117,6 @@ class Direcao:
         self.valor = NORTE
     def girar_a_direita(self):
         self.valor = self.rotacao_a_direita_dct[self.valor]
-
     def girar_a_esquerda(self):
         self.valor = self.rotacao_a_esquerda_dct[self.valor]
 
@@ -111,5 +128,3 @@ class Motor:
     def frear(self):
         self.velocidade -= 2
         self.velocidade = max(0, self.velocidade)
-
-
